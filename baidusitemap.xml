@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lcfsih.github.io/hnoi2012-mine/</loc>
-    <lastmod>2020-12-20</lastmod>
-  </url>
-  <url>
-    <loc>https://lcfsih.github.io/acam-notes/</loc>
+    <loc>https://lcfsih.github.io/poj-3177/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
@@ -13,7 +9,11 @@
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/loj-10050/</loc>
+    <loc>https://lcfsih.github.io/hnoi2012-mine/</loc>
+    <lastmod>2020-12-20</lastmod>
+  </url>
+  <url>
+    <loc>https://lcfsih.github.io/kmp-notes/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
@@ -25,7 +25,7 @@
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/kmp-notes/</loc>
+    <loc>https://lcfsih.github.io/loj-10050/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
@@ -33,19 +33,19 @@
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/haoi2006-cow/</loc>
+    <loc>https://lcfsih.github.io/fread-notes/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/tarjan-bcc-notes/</loc>
-    <lastmod>2020-12-20</lastmod>
-  </url>
-  <url>
-    <loc>https://lcfsih.github.io/poj-3177/</loc>
+    <loc>https://lcfsih.github.io/segtree-notes/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
     <loc>https://lcfsih.github.io/tarjan-cut-notes/</loc>
+    <lastmod>2020-12-20</lastmod>
+  </url>
+  <url>
+    <loc>https://lcfsih.github.io/tarjan-bcc-notes/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
@@ -57,11 +57,11 @@
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/fread-notes/</loc>
+    <loc>https://lcfsih.github.io/acam-notes/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/segtree-notes/</loc>
+    <loc>https://lcfsih.github.io/haoi2006-cow/</loc>
     <lastmod>2020-12-20</lastmod>
   </url>
 </urlset> 
