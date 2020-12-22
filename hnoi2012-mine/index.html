@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Tarjan,割点,">
 
 
 
@@ -96,13 +96,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="lcfsih&#39;s Blog">
-<meta property="og:url" content="https://lcfsih.github.io/tags/矩阵乘法/index.html">
+<meta name="description" content="煤矿工地可以看成是由隧道连接挖煤点组成的无向图。为安全起见，希望在工地发生事故时所有挖煤点的工人都能有一条出路逃到救援出口处。于是矿主决定在某些挖煤点设立救援出口，使得无论哪一个挖煤点坍塌之后，其他挖煤点的工人都有一条道路通向救援出口。 请写一个程序，用来计算至少需要设置几个救援出口，以及不同最少救援出口的设置方案总数。">
+<meta name="keywords" content="Tarjan,割点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「HNOI2012」矿场搭建 - 割点">
+<meta property="og:url" content="https://lcfsih.github.io/hnoi2012-mine/index.html">
 <meta property="og:site_name" content="lcfsih&#39;s Blog">
+<meta property="og:description" content="煤矿工地可以看成是由隧道连接挖煤点组成的无向图。为安全起见，希望在工地发生事故时所有挖煤点的工人都能有一条出路逃到救援出口处。于是矿主决定在某些挖煤点设立救援出口，使得无论哪一个挖煤点坍塌之后，其他挖煤点的工人都有一条道路通向救援出口。 请写一个程序，用来计算至少需要设置几个救援出口，以及不同最少救援出口的设置方案总数。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-20T06:53:57.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lcfsih&#39;s Blog">
+<meta name="twitter:title" content="「HNOI2012」矿场搭建 - 割点">
+<meta name="twitter:description" content="煤矿工地可以看成是由隧道连接挖煤点组成的无向图。为安全起见，希望在工地发生事故时所有挖煤点的工人都能有一条出路逃到救援出口处。于是矿主决定在某些挖煤点设立救援出口，使得无论哪一个挖煤点坍塌之后，其他挖煤点的工人都有一条道路通向救援出口。 请写一个程序，用来计算至少需要设置几个救援出口，以及不同最少救援出口的设置方案总数。">
 
 
 
@@ -131,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://lcfsih.github.io/tags/矩阵乘法/">
+  <link rel="canonical" href="https://lcfsih.github.io/hnoi2012-mine/">
 
 
 
 
 
-  <title>标签: 矩阵乘法 | lcfsih's Blog</title>
+  <title>「HNOI2012」矿场搭建 - 割点 | lcfsih's Blog</title>
   
 
 
@@ -191,7 +196,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -337,78 +342,240 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>矩阵乘法<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lcfsih.github.io/hnoi2012-mine/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lcfsih">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://gravatar.loli.net/avatar/a1fb23ff23fe4c54ccdfaacdb43449b2?size=256">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lcfsih's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/poj-3070/" itemprop="url">
-              
-                <span itemprop="name">「POJ 3070」Fibonacci - 矩阵快速幂</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">「HNOI2012」矿场搭建 - 割点</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-03-25T20:23:08+08:00" content="2018-03-25">
-          03-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T17:09:34+08:00">
+                2018-04-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Solution/" itemprop="url" rel="index">
+                    <span itemprop="name">Solution</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/hnoi2012-mine/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="hnoi2012-mine/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
+
+      
+        <p>煤矿工地可以看成是由隧道连接挖煤点组成的无向图。为安全起见，希望在工地发生事故时所有挖煤点的工人都能有一条出路逃到救援出口处。于是矿主决定在某些挖煤点设立救援出口，使得无论哪一个挖煤点坍塌之后，其他挖煤点的工人都有一条道路通向救援出口。</p>
+<p>请写一个程序，用来计算至少需要设置几个救援出口，以及不同最少救援出口的设置方案总数。</p>
+<a id="more"></a>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3>
+<p><a href="https://loj.ac/p/10099" target="_blank" rel="noopener">LOJ 10099</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P3225" target="_blank" rel="noopener">Luogu 3225</a></p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3>
+<p>Tarjan 算法求点双连通分量。</p>
+<p>当求得一个割点时，子树所有节点出栈并标记为一个点双连通分量，由于割点可能属于多个点双连通分量，所以割点也被标记为同一个点双连通分量，但是<strong>不出栈</strong>。</p>
+<p>如果原图就是一个点双连通分量，那么设置任意两个出口，就可以保证破坏掉任意一个点后，至少有一个出口。</p>
+<p>如果点双连通分量有一个割点，在这个点双连通分量中设置任意一个非割点出口。那么破坏割点，还有出口；破坏出口，这可以从割点连到其它点双连通分量。</p>
+<p>如果点双连通分量有两个或两个以上的割点，不用设置出口，可以保证破坏掉任意一个点后，至少有一个割点，可以通过它连到其它点双连通分量。</p>
+<p>乘法原理统计即可。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">vector</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> SIZE = <span class="number">10005</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cut[SIZE], bccTot, root;</span><br><span class="line"><span class="keyword">int</span> low[SIZE], dfn[SIZE], time;</span><br><span class="line"><span class="keyword">int</span> st[SIZE], top;</span><br><span class="line"><span class="keyword">int</span> h[SIZE], to[SIZE &lt;&lt; <span class="number">1</span>], nxt[SIZE &lt;&lt; <span class="number">1</span>], tot;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; bccList[SIZE];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &lt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &gt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	to[++tot] = y;</span><br><span class="line">	nxt[tot] = h[x];</span><br><span class="line">	h[x] = tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	low[x] = dfn[x] = ++time;</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	st[++top] = x;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = h[x]; i; i = nxt[i]) &#123;</span><br><span class="line">		<span class="keyword">int</span> y = to[i];</span><br><span class="line">		<span class="keyword">if</span> (!dfn[y]) &#123;</span><br><span class="line">			cnt++;</span><br><span class="line">			tarjan(y);</span><br><span class="line">			low[x] = min(low[x], low[y]);</span><br><span class="line">			<span class="keyword">if</span> (x == root &amp;&amp; cnt &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">				cut[x] = <span class="number">1</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (x != root &amp;&amp; dfn[x] &lt;= low[y]) &#123;</span><br><span class="line">				cut[x] = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (dfn[x] &lt;= low[y]) &#123;</span><br><span class="line">				++bccTot;</span><br><span class="line">				bccList[bccTot].clear();</span><br><span class="line">				bccList[bccTot].push_back(st[top--]);</span><br><span class="line">				<span class="keyword">while</span> (st[top+<span class="number">1</span>] != y) &#123;</span><br><span class="line">					bccList[bccTot].push_back(st[top--]);</span><br><span class="line">				&#125;</span><br><span class="line">				bccList[bccTot].push_back(st[top]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> low[x] = min(low[x], dfn[y]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	time = <span class="number">0</span>, top = <span class="number">0</span>;</span><br><span class="line">	tot = <span class="number">0</span>, bccTot = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">memset</span>(h, <span class="number">0</span>, <span class="keyword">sizeof</span>(h));</span><br><span class="line">	<span class="built_in">memset</span>(dfn, <span class="number">0</span>, <span class="keyword">sizeof</span>(dfn));</span><br><span class="line">	<span class="built_in">memset</span>(cut, <span class="number">0</span>, <span class="keyword">sizeof</span>(cut));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line">	<span class="keyword">int</span> T = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m) &amp;&amp; m) &#123;</span><br><span class="line">		n = <span class="number">0</span>;</span><br><span class="line">		init();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> x, y;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;x, &amp;y);</span><br><span class="line">			n = max(n, max(x, y));</span><br><span class="line">			add(x, y);</span><br><span class="line">			add(y, x);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (!dfn[i]) root = i, tarjan(i);</span><br><span class="line">		ll res = <span class="number">0</span>, num = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= bccTot; i++) &#123;</span><br><span class="line">			ll cnt = <span class="number">0</span>, len = bccList[i].size();</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (cut[bccList[i][j]]) cnt++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (cnt == <span class="number">0</span>) res += <span class="number">2</span>, num = (num * len * (len - <span class="number">1</span>)) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (cnt == <span class="number">1</span>) res += <span class="number">1</span>, num = (num * (len - <span class="number">1</span>));</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (cnt &gt;= <span class="number">2</span>) <span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Case %d: %lld %lld\n"</span>, T++, res, num);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/matrix-notes/" itemprop="url">
-              
-                <span itemprop="name">矩阵乘法学习笔记</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-03-25T18:11:23+08:00" content="2018-03-25">
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/hnoi2012-mine/">「HNOI2012」矿场搭建 - 割点</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 lcfsih 的个人博客">lcfsih</a></p>
+  <p><span>发布时间:</span>2018 年 04 月 20 日 - 17:09</p>
+  <p><span>最后更新:</span>2020 年 12 月 20 日 - 14:53</p>
+  <p><span>原始链接:</span><a id="lnk" href="/hnoi2012-mine/" title="「HNOI2012」矿场搭建 - 割点">https://lcfsih.github.io/hnoi2012-mine/</a>
+    <span class="copy-path" title="点击复制文章链接"><i id="cpy" class="fa fa-clipboard" data-clipboard-text="https://lcfsih.github.io/hnoi2012-mine/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)">署名-非商业性使用-相同方式共享 4.0 国际版</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var phref = window.location.href;
+    var cut = phref.lastIndexOf('/');
+    if ((cut != 7) && (cut != 6) && (cut != 5)) phref = phref.substring(0, cut + 1);
+    var llnk = document.getElementById("lnk");
+    var ccpy = document.getElementById("cpy");
+    llnk.href = phref;
+    llnk.innerHTML = phref;
+    //ccpy.data-clipboard-text = phref;
+    $(function(){
+      $("#cpy").attr("data-clipboard-text", phref);
+    })
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
 
       
     </div>
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tarjan/" rel="tag"># Tarjan</a>
+          
+            <a href="/tags/割点/" rel="tag"># 割点</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/haoi2006-cow/" rel="next" title="「HAOI2006」受欢迎的牛 - 强连通分量">
+                <i class="fa fa-chevron-left"></i> 「HAOI2006」受欢迎的牛 - 强连通分量
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -416,6 +583,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -436,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="https://gravatar.loli.net/avatar/a1fb23ff23fe4c54ccdfaacdb43449b2?size=256" alt="lcfsih">
           <p class="site-author-name" itemprop="name">lcfsih</p>
@@ -550,6 +737,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#链接"><span class="nav-number">1.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -670,10 +873,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -691,6 +894,18 @@
       <script id="dsq-count-scr" src="https://lcfsih.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://lcfsih.github.io/hnoi2012-mine/';
+          this.page.identifier = 'hnoi2012-mine/';
+          this.page.title = '「HNOI2012」矿场搭建 - 割点';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lcfsih.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
