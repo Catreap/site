@@ -1851,6 +1851,7 @@ pre .javascript .function {
   margin-bottom: 10px;
   border-bottom-color: #555;
   font-size: 13px;
+  text-align: left;
 }
 .links-of-author a:before {
   display: inline-block;
@@ -1860,7 +1861,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #03e5ff;
+  background: #3e6328;
 }
 .links-of-blogroll {
   font-size: 13px;
