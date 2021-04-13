@@ -1,0 +1,122 @@
+
+<html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0">
+    <title>在线 Hash 加密工具</title>
+    <meta name="keywords" content="sha1,sha224,sha256,sha384,sha512,加密工具,在线工具,在线 Hash 加密工具">
+    <meta name="description" content="这是一款可对输入字符串进行 Hash 加密的在线工具，提供了 SHA1、SHA224、SHA256、SHA384、SHA512 多种加密功能。">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/css/hash-api/bootstrap.min.css" rel="stylesheet">
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/css/hash-api/theme.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.0/dist/jquery.min.js"></script>
+  </head>
+  <body>
+  <div class="container-fluid"><!-- container-fluid -->
+
+<div class="row">
+  <div class="col-md-9">
+<h2 class="alert alert-success" style="font-size:16px; line-height: 1.4;">这是一款可对输入字符串进行 Hash 加密的在线工具，提供了 SHA1、SHA224、SHA256、SHA384、SHA512 多种加密功能。</h2>
+<hr>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/hash-api/hmac-sha1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/hash-api/hmac-sha224.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/hash-api/hmac-sha256.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/hash-api/hmac-sha384.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/hash-api/hmac-sha512.min.js"></script>
+
+<div class="panel panel-default">
+
+<div class="panel-body">
+<div style="padding-bottom: 10px;">
+<textarea id="message_source" name="RawJson" class="json_input" rows="10" style="width: 100%; resize: none;" spellcheck="false" placeholder="请输入需要编码字符串"></textarea>
+</div>
+<div class="btn-group0" role="group" aria-label="...">
+<button type="button" class="btn btn-primary" onclick="hash('sha1');">SHA1 加密</button>
+<button type="button" class="btn btn-primary" onclick="hash('sha224');">SHA224 加密</button>
+<button type="button" class="btn btn-primary" onclick="hash('sha256');">SHA256 加密</button>
+<button type="button" class="btn btn-primary" onclick="hash('sha384');">SHA384 加密</button>
+<button type="button" class="btn btn-primary" onclick="hash('sha512');">SHA512 加密</button>
+<button type="button" class="btn btn-danger" onclick="Empty();">清空结果</button>
+<style>
+.btn {
+    margin: 0 0 5px;
+}
+</style>
+</div>
+<div style="padding-top: 10px;">
+<textarea id="hash_result" name="RawJson" class="json_input" rows="10" style="width: 100%; resize: none;" spellcheck="false" placeholder="编码后的字符串"></textarea>
+</div>
+</div>
+<input type="hidden" id="encode" value="1">
+<div class="panel-footer"></div>
+</div>
+<script type="text/javascript">
+	 function hash(type,flag){
+		    if(!flag)$(".buttonSelected").removeClass("buttonSelected");
+	    	switch(type){
+		    	case "sha1":
+		    		$("#hash_result").val(CryptoJS.SHA1($("#message_source").val()));
+		    		break;
+		    	case "sha224":
+		    		$("#hash_result").val(CryptoJS.SHA224($("#message_source").val()));
+		    		break;
+		    	case "sha256":
+		    	    $("#hash_result").val(CryptoJS.SHA256($("#message_source").val()));
+		    		break;
+		    	case "sha384":
+		    		$("#hash_result").val(CryptoJS.SHA384($("#message_source").val()));
+		    		break;
+		    	case "sha512":
+		    	    $("#hash_result").val(CryptoJS.SHA512($("#message_source").val()));
+		    		break;
+		    	case "md5":
+		    	    $("#hash_result").val(CryptoJS.MD5($("#message_source").val()));
+		    		break;
+		    	case "hmacsha1":
+		    	    $("#hash_result").val(CryptoJS.HmacSHA1($("#message_source").val(),$("#pwd").val()));
+		    		break;
+		    	case "hmacsha224":
+		    	    $("#hash_result").val(CryptoJS.HmacSHA224($("#message_source").val(),$("#pwd").val()));
+		    		break;
+		    	case "hmacsha256":
+		    	    $("#hash_result").val(CryptoJS.HmacSHA256($("#message_source").val(),$("#pwd").val()));
+		    		break;
+		    	case "hmacsha384":
+		    	    $("#hash_result").val(CryptoJS.HmacSHA384($("#message_source").val(),$("#pwd").val()));
+		    		break;
+		    	case "hmacsha512":
+		    	    $("#hash_result").val(CryptoJS.HmacSHA512($("#message_source").val(),$("#pwd").val()));
+		    		break;
+		    	case "hmacmd5":
+		    	    $("#hash_result").val(CryptoJS.HmacMD5($("#message_source").val(),$("#pwd").val()));
+		    		break;
+				case "pbkdf2":
+					if(isNAN($("#iterations").val()))
+					{
+						var salt=CryptoJS.enc.Utf8.parse($("#salt").val());
+						var hash_str_pbkdf2=CryptoJS.PBKDF2(
+							$("#message_source").val(), salt,
+							{ keySize: parseInt($("#key_size").val()),
+							iterations: parseInt($("#iterations").val()) }
+						);
+						$("#hash_result").val(hash_str_pbkdf2);
+					}
+					else{
+					alert("迭代次数必须为数字");$("#salt").val("")}
+					break;
+	    	}
+	    }
+
+
+	 function Empty() {
+        document.getElementById('hash_result').value = '';
+        document.getElementById('message_source').value = '';
+        document.getElementById('hash_result').select();
+    }
+	
+    function GetFocus() {
+			document.getElementById('content').focus();
+    }
+</script>
+</div>
+</div> <!--end for container-->
+</div></body></html>

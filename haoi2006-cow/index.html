@@ -39,7 +39,7 @@
 
   
   
-  <link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -73,9 +73,9 @@
 
 
 
-<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="缩点,Tarjan,强连通分量,">
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="lcfsih&#39;s Blog">
 <meta property="og:description" content="每一头牛的愿望就是变成一头最受欢迎的牛。现在有  N         头牛，给你  M         对整数  (A,B)                    ，表示牛  A         认为牛  B         受欢迎。这种关系是具有传递性的，如果  A         认为  B         受欢迎， B         认为  C         受欢迎，那么牛  A">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-20T06:53:57.061Z">
+<meta property="og:updated_time" content="2021-03-28T00:53:08.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「HAOI2006」受欢迎的牛 - 强连通分量">
 <meta name="twitter:description" content="每一头牛的愿望就是变成一头最受欢迎的牛。现在有  N         头牛，给你  M         对整数  (A,B)                    ，表示牛  A         认为牛  B         受欢迎。这种关系是具有传递性的，如果  A         认为  B         受欢迎， B         认为  C         受欢迎，那么牛  A">
@@ -582,7 +582,7 @@
  <use xlink:href="#E15-MJMATHI-69" x="0" y="0"/>
 </g>
 </svg></span> 的强连通分量出边数目（出度）。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> vSIZE = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> eSIZE = <span class="number">400005</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> out[vSIZE];</span><br><span class="line"><span class="keyword">int</span> scc[vSIZE], sccSize[vSIZE], sccTot;</span><br><span class="line"><span class="keyword">int</span> st[vSIZE], top;</span><br><span class="line"><span class="keyword">int</span> low[vSIZE], dfn[vSIZE], time;</span><br><span class="line"><span class="keyword">int</span> h[eSIZE], to[eSIZE], nxt[eSIZE], tot;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &lt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	to[++tot] = y;</span><br><span class="line">	nxt[tot] = h[x];</span><br><span class="line">	h[x] = tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	low[x] = dfn[x] = ++time;</span><br><span class="line">	st[++top] = x;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = h[x]; i; i = nxt[i]) &#123;</span><br><span class="line">		<span class="keyword">int</span> y = to[i];</span><br><span class="line">		<span class="keyword">if</span> (!dfn[y]) &#123;</span><br><span class="line">			tarjan(y);</span><br><span class="line">			low[x] = min(low[x], low[y]);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!scc[y]) &#123;</span><br><span class="line">			low[x] = min(low[x], dfn[y]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (low[x] == dfn[x]) &#123;</span><br><span class="line">		scc[x] = ++sccTot;</span><br><span class="line">		sccSize[sccTot] ++;</span><br><span class="line">		<span class="keyword">while</span> (st[top] != x) &#123;</span><br><span class="line">			scc[st[top--]] = sccTot;</span><br><span class="line">			sccSize[sccTot] ++;</span><br><span class="line">		&#125;</span><br><span class="line">		top--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, ans = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;x, &amp;y);</span><br><span class="line">		add(x, y);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (!dfn[i]) tarjan(i);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = h[i]; j; j = nxt[j]) &#123;</span><br><span class="line">            <span class="comment">// 两个点所属的强连通分量不同</span></span><br><span class="line">			<span class="keyword">if</span> (scc[i] != scc[to[j]]) out[scc[i]]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sccTot; i++) &#123;</span><br><span class="line">        <span class="comment">// 如果没有出边</span></span><br><span class="line">		<span class="keyword">if</span> (!out[i]) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!ans) ans = sccSize[i]; <span class="comment">// 这个强连通分量的牛都是受欢迎的</span></span><br><span class="line">			<span class="keyword">else</span> ans = <span class="number">0</span>; <span class="comment">// 已经存在点没有出边的情况</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> vSIZE = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> eSIZE = <span class="number">400005</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> out[vSIZE];</span><br><span class="line"><span class="keyword">int</span> scc[vSIZE], sccSize[vSIZE], sccTot;</span><br><span class="line"><span class="keyword">int</span> st[vSIZE], top;</span><br><span class="line"><span class="keyword">int</span> low[vSIZE], dfn[vSIZE], time;</span><br><span class="line"><span class="keyword">int</span> h[eSIZE], to[eSIZE], nxt[eSIZE], tot;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &lt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    to[++tot] = y;</span><br><span class="line">    nxt[tot] = h[x];</span><br><span class="line">    h[x] = tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    low[x] = dfn[x] = ++time;</span><br><span class="line">    st[++top] = x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = h[x]; i; i = nxt[i]) &#123;</span><br><span class="line">        <span class="keyword">int</span> y = to[i];</span><br><span class="line">        <span class="keyword">if</span> (!dfn[y]) &#123;</span><br><span class="line">            tarjan(y);</span><br><span class="line">            low[x] = min(low[x], low[y]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!scc[y]) &#123;</span><br><span class="line">            low[x] = min(low[x], dfn[y]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (low[x] == dfn[x]) &#123;</span><br><span class="line">        scc[x] = ++sccTot;</span><br><span class="line">        sccSize[sccTot] ++;</span><br><span class="line">        <span class="keyword">while</span> (st[top] != x) &#123;</span><br><span class="line">            scc[st[top--]] = sccTot;</span><br><span class="line">            sccSize[sccTot] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        top--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;x, &amp;y);</span><br><span class="line">        add(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="keyword">if</span> (!dfn[i]) tarjan(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = h[i]; j; j = nxt[j]) &#123;</span><br><span class="line">            <span class="comment">// 两个点所属的强连通分量不同</span></span><br><span class="line">            <span class="keyword">if</span> (scc[i] != scc[to[j]]) out[scc[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sccTot; i++) &#123;</span><br><span class="line">        <span class="comment">// 如果没有出边</span></span><br><span class="line">        <span class="keyword">if</span> (!out[i]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!ans) ans = sccSize[i]; <span class="comment">// 这个强连通分量的牛都是受欢迎的</span></span><br><span class="line">            <span class="keyword">else</span> ans = <span class="number">0</span>; <span class="comment">// 已经存在点没有出边的情况</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -602,7 +602,7 @@
   <p><span>本文标题:</span><a href="/haoi2006-cow/">「HAOI2006」受欢迎的牛 - 强连通分量</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 lcfsih 的个人博客">lcfsih</a></p>
   <p><span>发布时间:</span>2018 年 04 月 16 日 - 18:35</p>
-  <p><span>最后更新:</span>2020 年 12 月 20 日 - 14:53</p>
+  <p><span>最后更新:</span>2021 年 03 月 28 日 - 08:53</p>
   <p><span>原始链接:</span><a id="lnk" href="/haoi2006-cow/" title="「HAOI2006」受欢迎的牛 - 强连通分量">https://lcfsih.github.io/haoi2006-cow/</a>
     <span class="copy-path" title="点击复制文章链接"><i id="cpy" class="fa fa-clipboard" data-clipboard-text="https://lcfsih.github.io/haoi2006-cow/" aria-label="复制成功！"></i></span>
   </p>
@@ -759,7 +759,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -781,7 +781,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -956,53 +956,53 @@
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 

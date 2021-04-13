@@ -39,7 +39,7 @@
 
   
   
-  <link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -73,9 +73,9 @@
 
 
 
-<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="学习笔记,Trie,">
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="lcfsih&#39;s Blog">
 <meta property="og:description" content="Trie 也称字典树，指可以储存多个字符串的有根树。Trie 树的每一条边对应一个字符，每一个顶点代表从根到该结点经过的字符边按顺序连接的字符串。我们也可以称顶点为状态，边为转移。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-20T06:53:57.061Z">
+<meta property="og:updated_time" content="2021-03-28T00:53:08.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Trie 学习笔记">
 <meta name="twitter:description" content="Trie 也称字典树，指可以储存多个字符串的有根树。Trie 树的每一条边对应一个字符，每一个顶点代表从根到该结点经过的字符边按顺序连接的字符串。我们也可以称顶点为状态，边为转移。">
@@ -467,7 +467,7 @@
 <li>完成匹配，返回 <code>true</code>。</li>
 </ol>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tot;</span><br><span class="line"><span class="keyword">int</span> ch[<span class="number">1000</span>][<span class="number">100</span>];</span><br><span class="line"><span class="keyword">bool</span> flag[<span class="number">100005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">	<span class="keyword">int</span> u = <span class="number">1</span>; <span class="comment">// 定义根结点编号为 1</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> c = s[i] - <span class="string">'a'</span>; <span class="comment">// 假设字符串只有小写字母</span></span><br><span class="line">		<span class="keyword">if</span> (!ch[u][c]) ch[u][c] = ++tot;</span><br><span class="line">		u = ch[u][c];</span><br><span class="line">	&#125;</span><br><span class="line">	flag[u] = <span class="literal">true</span>; <span class="comment">// 结尾标记</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">query</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">	<span class="keyword">int</span> u = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> c = s[i] - <span class="string">'a'</span>;</span><br><span class="line">		<span class="keyword">if</span> (!ch[u][c]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		u = ch[u][c];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tot;</span><br><span class="line"><span class="keyword">int</span> ch[<span class="number">1000</span>][<span class="number">100</span>];</span><br><span class="line"><span class="keyword">bool</span> flag[<span class="number">100005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">int</span> u = <span class="number">1</span>; <span class="comment">// 定义根结点编号为 1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> c = s[i] - <span class="string">'a'</span>; <span class="comment">// 假设字符串只有小写字母</span></span><br><span class="line">        <span class="keyword">if</span> (!ch[u][c]) ch[u][c] = ++tot;</span><br><span class="line">        u = ch[u][c];</span><br><span class="line">    &#125;</span><br><span class="line">    flag[u] = <span class="literal">true</span>; <span class="comment">// 结尾标记</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">query</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">int</span> u = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> c = s[i] - <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">if</span> (!ch[u][c]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        u = ch[u][c];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -486,7 +486,7 @@
   <p><span>本文标题:</span><a href="/trie-notes/">Trie 学习笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 lcfsih 的个人博客">lcfsih</a></p>
   <p><span>发布时间:</span>2018 年 03 月 21 日 - 08:42</p>
-  <p><span>最后更新:</span>2020 年 12 月 20 日 - 14:53</p>
+  <p><span>最后更新:</span>2021 年 03 月 28 日 - 08:53</p>
   <p><span>原始链接:</span><a id="lnk" href="/trie-notes/" title="Trie 学习笔记">https://lcfsih.github.io/trie-notes/</a>
     <span class="copy-path" title="点击复制文章链接"><i id="cpy" class="fa fa-clipboard" data-clipboard-text="https://lcfsih.github.io/trie-notes/" aria-label="复制成功！"></i></span>
   </p>
@@ -641,7 +641,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -663,7 +663,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -838,53 +838,53 @@
 
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/post-details.js?v=5.1.2"></script>
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.16.0/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lcfsih/blog-cdn@2021.1.23.1/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
