@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lcfsih.github.io/tarjan-scc-notes/</loc>
+    <loc>https://lcfsih.github.io/matrix-notes/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
@@ -13,11 +13,11 @@
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/haoi2006-cow/</loc>
+    <loc>https://lcfsih.github.io/acam-notes/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/fread-notes/</loc>
+    <loc>https://lcfsih.github.io/haoi2006-cow/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
@@ -25,11 +25,15 @@
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/kmp-notes/</loc>
+    <loc>https://lcfsih.github.io/fread-notes/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
     <loc>https://lcfsih.github.io/hnoi2012-mine/</loc>
+    <lastmod>2021-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://lcfsih.github.io/kmp-notes/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
@@ -38,10 +42,6 @@
   </url>
   <url>
     <loc>https://lcfsih.github.io/loj-10051/</loc>
-    <lastmod>2021-03-28</lastmod>
-  </url>
-  <url>
-    <loc>https://lcfsih.github.io/matrix-notes/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
@@ -57,11 +57,11 @@
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/acam-notes/</loc>
+    <loc>https://lcfsih.github.io/tarjan-cut-notes/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>
-    <loc>https://lcfsih.github.io/tarjan-cut-notes/</loc>
+    <loc>https://lcfsih.github.io/tarjan-scc-notes/</loc>
     <lastmod>2021-03-28</lastmod>
   </url>
   <url>

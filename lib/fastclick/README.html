@@ -21,41 +21,41 @@
 <h2 id="When-it-isn-t-needed"><a href="#When-it-isn-t-needed" class="headerlink" title="When it isn't needed"></a>When it isn't needed</h2>
 <p>FastClick doesn't attach any listeners on desktop browsers.</p>
 <p>Chrome 32+ on Android with <code>width=device-width</code> in the <a href="https://developer.mozilla.org/en-US/docs/Mobile/Viewport_meta_tag">viewport meta tag</a> doesn't have a 300ms delay, therefore listeners aren't attached.</p>
-<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+<pre><code><span class="pl-p">&lt;</span><span class="pl-nt">meta</span> <span class="pl-na">name</span><span class="pl-o">=</span><span class="pl-s">"viewport"</span> <span class="pl-na">content</span><span class="pl-o">=</span><span class="pl-s">"width=device-width, initial-scale=1"</span><span class="pl-p">&gt;</span>
 </code></pre>
 <p>Same goes for Chrome on Android (all versions) with <code>user-scalable=no</code> in the viewport meta tag. But be aware that <code>user-scalable=no</code> also disables pinch zooming, which may be an accessibility concern.</p>
 <p>For IE11+, you can use <code>touch-action: manipulation;</code> to disable double-tap-to-zoom on certain elements (like links and buttons).  For IE10 use <code>-ms-touch-action: manipulation</code>.</p>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2>
 <p>Include fastclick.js in your JavaScript bundle or add it to your HTML page like this:</p>
-<pre><code>&lt;script type='application/javascript' src='/path/to/fastclick.js'&gt;&lt;/script&gt;
+<pre><code><span class="pl-p">&lt;</span><span class="pl-nt">script</span> <span class="pl-na">type</span><span class="pl-o">=</span><span class="pl-s">'application/javascript'</span> <span class="pl-na">src</span><span class="pl-o">=</span><span class="pl-s">'/path/to/fastclick.js'</span><span class="pl-p">&gt;&lt;/</span><span class="pl-nt">script</span><span class="pl-p">&gt;</span>
 </code></pre>
 <p>The script must be loaded prior to instantiating FastClick on any element of the page.</p>
 <p>To instantiate FastClick on the <code>body</code>, which is the recommended method of use:</p>
-<pre><code>if ('addEventListener' in document) {
-	document.addEventListener('DOMContentLoaded', function() {
-		FastClick.attach(document.body);
-	}, false);
-}
+<pre><code><span class="pl-k">if</span> <span class="pl-p">(</span><span class="pl-s1">'addEventListener'</span> <span class="pl-k">in</span> <span class="pl-nb">document</span><span class="pl-p">)</span> <span class="pl-p">{</span>
+	<span class="pl-nb">document</span><span class="pl-p">.</span><span class="pl-nx">addEventListener</span><span class="pl-p">(</span><span class="pl-s1">'DOMContentLoaded'</span><span class="pl-p">,</span> <span class="pl-kd">function</span><span class="pl-p">()</span> <span class="pl-p">{</span>
+		<span class="pl-nx">FastClick</span><span class="pl-p">.</span><span class="pl-nx">attach</span><span class="pl-p">(</span><span class="pl-nb">document</span><span class="pl-p">.</span><span class="pl-nx">body</span><span class="pl-p">);</span>
+	<span class="pl-p">},</span> <span class="pl-kc">false</span><span class="pl-p">);</span>
+<span class="pl-p">}</span>
 </code></pre>
 <p>Or, if you're using jQuery:</p>
-<pre><code>$(function() {
-	FastClick.attach(document.body);
-});
+<pre><code><span class="pl-nx">$</span><span class="pl-p">(</span><span class="pl-kd">function</span><span class="pl-p">()</span> <span class="pl-p">{</span>
+	<span class="pl-nx">FastClick</span><span class="pl-p">.</span><span class="pl-nx">attach</span><span class="pl-p">(</span><span class="pl-nb">document</span><span class="pl-p">.</span><span class="pl-nx">body</span><span class="pl-p">);</span>
+<span class="pl-p">});</span>
 </code></pre>
 <p>If you're using Browserify or another CommonJS-style module system, the <code>FastClick.attach</code> function will be returned when you call <code>require('fastclick')</code>. As a result, the easiest way to use FastClick with these loaders is as follows:</p>
-<pre><code>var attachFastClick = require('fastclick');
-attachFastClick(document.body);
+<pre><code><span class="pl-kd">var</span> <span class="pl-nx">attachFastClick</span> <span class="pl-o">=</span> <span class="pl-nx">require</span><span class="pl-p">(</span><span class="pl-s1">'fastclick'</span><span class="pl-p">);</span>
+<span class="pl-nx">attachFastClick</span><span class="pl-p">(</span><span class="pl-nb">document</span><span class="pl-p">.</span><span class="pl-nx">body</span><span class="pl-p">);</span>
 </code></pre>
 <h3 id="Minified"><a href="#Minified" class="headerlink" title="Minified"></a>Minified</h3>
 <p>Run <code>make</code> to build a minified version of FastClick using the Closure Compiler REST API. The minified file is saved to <code>build/fastclick.min.js</code> or you can <a href="http://build.origami.ft.com/bundles/js?modules=fastclick">download a pre-minified version</a>.</p>
 <p>Note: the pre-minified version is built using <a href="http://origami.ft.com/docs/developer-guide/build-service/">our build service</a> which exposes the <code>FastClick</code> object through <code>Origami.fastclick</code> and will have the Browserify/CommonJS API (see above).</p>
-<pre><code>var attachFastClick = Origami.fastclick;
-attachFastClick(document.body);
+<pre><code><span class="pl-kd">var</span> <span class="pl-nx">attachFastClick</span> <span class="pl-o">=</span> <span class="pl-nx">Origami</span><span class="pl-p">.</span><span class="pl-nx">fastclick</span><span class="pl-p">;</span>
+<span class="pl-nx">attachFastClick</span><span class="pl-p">(</span><span class="pl-nb">document</span><span class="pl-p">.</span><span class="pl-nx">body</span><span class="pl-p">);</span>
 </code></pre>
 <h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3>
 <p>FastClick has AMD (Asynchronous Module Definition) support. This allows it to be lazy-loaded with an AMD loader, such as <a href="http://requirejs.org/">RequireJS</a>. Note that when using the AMD style require, the full <code>FastClick</code> object will be returned, <em>not</em> <code>FastClick.attach</code></p>
-<pre><code>var FastClick = require('fastclick');
-FastClick.attach(document.body, options);
+<pre><code><span class="pl-kd">var</span> <span class="pl-nx">FastClick</span> <span class="pl-o">=</span> <span class="pl-nx">require</span><span class="pl-p">(</span><span class="pl-s1">'fastclick'</span><span class="pl-p">);</span>
+<span class="pl-nx">FastClick</span><span class="pl-p">.</span><span class="pl-nx">attach</span><span class="pl-p">(</span><span class="pl-nb">document</span><span class="pl-p">.</span><span class="pl-nx">body</span><span class="pl-p">,</span> <span class="pl-nx">options</span><span class="pl-p">);</span>
 </code></pre>
 <h3 id="Package-managers"><a href="#Package-managers" class="headerlink" title="Package managers"></a>Package managers</h3>
 <p>You can install FastClick using <a href="https://github.com/component/component">Component</a>, <a href="https://npmjs.org/package/fastclick">npm</a> or <a href="http://bower.io/">Bower</a>.</p>
@@ -63,14 +63,14 @@ FastClick.attach(document.body, options);
 <h2 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h2>
 <h3>Ignore certain elements with <code>needsclick</code></h3>
 <p>Sometimes you need FastClick to ignore certain elements. You can do this easily by adding the <code>needsclick</code> class.</p>
-<pre><code>&lt;a class="needsclick"&gt;Ignored by FastClick&lt;/a&gt;
+<pre><code><span class="pl-p">&lt;</span><span class="pl-nt">a</span> <span class="pl-na">class</span><span class="pl-o">=</span><span class="pl-s">"needsclick"</span><span class="pl-p">&gt;</span>Ignored by FastClick<span class="pl-p">&lt;/</span><span class="pl-nt">a</span><span class="pl-p">&gt;</span>
 </code></pre>
 <h4 id="Use-case-1-non-synthetic-click-required"><a href="#Use-case-1-non-synthetic-click-required" class="headerlink" title="Use case 1: non-synthetic click required"></a>Use case 1: non-synthetic click required</h4>
 <p>Internally, FastClick uses <code>document.createEvent</code> to fire a synthetic <code>click</code> event as soon as <code>touchend</code> is fired by the browser. It then suppresses the additional <code>click</code> event created by the browser after that. In some cases, the non-synthetic <code>click</code> event created by the browser is required, as described in the <a href="http://ftlabs.github.com/fastclick/examples/focus.html">triggering focus example</a>.</p>
 <p>This is where the <code>needsclick</code> class comes in. Add the class to any element that requires a non-synthetic click.</p>
 <h4 id="Use-case-2-Twitter-Bootstrap-2-2-2-dropdowns"><a href="#Use-case-2-Twitter-Bootstrap-2-2-2-dropdowns" class="headerlink" title="Use case 2: Twitter Bootstrap 2.2.2 dropdowns"></a>Use case 2: Twitter Bootstrap 2.2.2 dropdowns</h4>
 <p>Another example of when to use the <code>needsclick</code> class is with dropdowns in Twitter Bootstrap 2.2.2. Bootstrap add its own <code>touchstart</code> listener for dropdowns, so you want to tell FastClick to ignore those. If you don't, touch devices will automatically close the dropdown as soon as it is clicked, because both FastClick and Bootstrap execute the synthetic click, one opens the dropdown, the second closes it immediately after.</p>
-<pre><code>&lt;a class="dropdown-toggle needsclick" data-toggle="dropdown"&gt;Dropdown&lt;/a&gt;
+<pre><code><span class="pl-p">&lt;</span><span class="pl-nt">a</span> <span class="pl-na">class</span><span class="pl-o">=</span><span class="pl-s">"dropdown-toggle needsclick"</span> <span class="pl-na">data-toggle</span><span class="pl-o">=</span><span class="pl-s">"dropdown"</span><span class="pl-p">&gt;</span>Dropdown<span class="pl-p">&lt;/</span><span class="pl-nt">a</span><span class="pl-p">&gt;</span>
 </code></pre>
 <h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2>
 <p>FastClick is designed to cope with many different browser oddities. Here are some examples to illustrate this:</p>

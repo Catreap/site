@@ -14,4 +14,10 @@ https://lcfsih.github.io/loj-10051/
 https://lcfsih.github.io/loj-10050/
 https://lcfsih.github.io/trie-notes/
 https://lcfsih.github.io/kmp-notes/
+https://lcfsih.github.io/
+https://lcfsih.github.io/tags/
+https://lcfsih.github.io/archives/
+https://lcfsih.github.io/categories/
+https://lcfsih.github.io/friends/
+https://lcfsih.github.io/about-me/
 https://lcfsih.github.io/hash-notes/
